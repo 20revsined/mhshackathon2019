@@ -13,14 +13,15 @@ end = '2016'
 pltdf = df[start:end]
 
 stkind = 0
-tmpdf = pltdf[stks[stkind]]
+
 plt.figure()
 plt.plot()
 
 for stkind in range(len(stks)):
+  plt.subplot(2, 2, stkind + 1)
   plt.plot(tmpdf.index,tmpdf.values)
-
-plt.title('Prices of ' + stks[stkind] + ' from ' + start + ' to ' + end)
-plt.xlabel('Dates')
-plt.ybael('Price')
-plt.show()
+  tmpdf = pltdf[stks[stkind]]
+  plt.title('Prices of ' + stks[stkind] + ' from ' + start + ' to ' + end)
+  plt.xlabel('Dates')
+  plt.ylabel('Price')
+ plt.show()
