@@ -10,9 +10,12 @@ stks = ['NKE', 'IBM', 'JPM', 'AAPL', 'GE']
 start = '2010'
 end = '2016'
 
+rtndf = df[stks][[start:end].pct_change().dropna()
+
+
 pltdf = df[start:end]
 
-pltflag = False
+pltflag = True
 
 if pltflag:
   #pandas fig 1
