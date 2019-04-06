@@ -12,16 +12,26 @@ end = '2016'
 
 pltdf = df[start:end]
 
-stkind = 0
+pltflag = False
 
-plt.figure()
-plt.plot()
+if pltflag:
+  #pandas fig 1
+  pltdf[stks].pct_change().plot()
+  
+  #pandas fig 2
+  pltdf[stks].pct_change().dropna.cumsum().plot()
 
-for stkind in range(len(stks)):
-  plt.subplot(2, 2, stkind + 1)
-  plt.plot(tmpdf.index,tmpdf.values)
-  tmpdf = pltdf[stks[stkind]]
-  plt.title('Prices of ' + stks[stkind] + ' from ' + start + ' to ' + end)
-  plt.xlabel('Dates')
-  plt.ylabel('Price')
- plt.show()
+  stkind = 0
+
+  ## Matplotlib plots
+  plt.figure()
+  plt.plot()
+
+  for stkind in range(len(stks)):
+    plt.subplot(2, 2, stkind + 1)
+    plt.plot(tmpdf.index,tmpdf.values)
+    tmpdf = pltdf[stks[stkind]]
+    plt.title('Prices of ' + stks[stkind] + ' from ' + start + ' to ' + end)
+    plt.xlabel('Dates')
+    plt.ylabel('Price')
+  plt.show()
