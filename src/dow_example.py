@@ -11,10 +11,17 @@ start = '2010'
 end = '2016'
 
 rtndf = df[stks][[start:end].pct_change().dropna()
+rtndf.hist(bins = 50)
 
-
+#Compute volitility of each stock
 pltdf = df[start:end]
+print(rtndf.std())
 
+#write to a csv file
+voldf = rtndf.std()
+voldf.to_csv('stkvol.csv')
+voldf.to_pickle('stkvol.pkl')
+                 
 pltflag = True
 
 if pltflag:
